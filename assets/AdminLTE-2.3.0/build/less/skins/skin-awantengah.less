@@ -1,0 +1,248 @@
+/**
+* @Author: Awan Tengah
+* @Date:   2017-02-03T13:37:38+07:00
+* @Last modified by:   Awan Tengah
+* @Last modified time: 2017-04-11T21:09:54+07:00
+*/
+
+
+
+/*
+* Skin: Awan Tengah
+* ----------
+*/
+
+// out: skin-awantengah.css, sourcemap: true, compress: true
+@import "../../bootstrap-less/mixins.less";
+@import "../../bootstrap-less/variables.less";
+@import "../variables.less";
+@import "../mixins.less";
+
+@height-awantengah: @navbar-height;
+@light-awantengah: #F7F7F7;
+@light-hover-awantengah: #3498db;
+@sidebar-awantengah: #212121;
+@sidebar-hover-awantengah: #2F2F2F;
+@bg-awantengah: #FCFCFC;
+@navbar-bg: #71643A;
+
+
+.padding-0 {
+    padding: 0 !important;
+}
+.margin-0 {
+    margin: 0 !important;
+}
+
+.skin-awantengah {
+    //Navbar
+    .main-header {
+        // box-shadow: 0px 0px 8px rgba(0,0,0,0.6),inset 0 -1px 0 rgba(0,0,0,0.4),inset 0 -2px 0 rgba(255,255,255,0.1);
+        .navbar {
+            background: @navbar-bg !important;
+            min-height: @height-awantengah;
+            .navbar-variant(@light-awantengah; #fff);
+            .sidebar-toggle {
+                //padding: @height-awantengah / 3;
+                color: #fff;
+                &:hover {
+                    background-color: darken(@navbar-bg, 5%);
+                }
+            }
+            .nav {
+                li {
+                    a {
+                        color: #f6f6f6;
+                    }
+                    // a:hover {
+                    //     background: transparent;
+                    //     color: #f6f6f6;
+                    // }
+                }
+            }
+            //.dropdown-toggle {
+            //  padding: @height-awantengah / 3;
+            //}
+            @media (max-width: @screen-header-collapse) {
+                .dropdown-menu {
+                    li {
+                        &.divider {
+                            background-color: rgba(255, 255, 255, 0.1);
+                        }
+                        a {
+                            color: #fff;
+                            &:hover {
+                                background: darken(@light-awantengah, 5%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //Logo
+        .logo {
+            background: @navbar-bg;
+            color: #fff;
+            height: @height-awantengah;
+            line-height: @height-awantengah;
+            .search-navbar {
+                height: 50px;
+                background: @navbar-bg;
+                border: none;
+                color: #fff;
+            }
+        }
+
+        li.user-header {
+            background-color: @navbar-bg;
+        }
+    }
+
+    .content-wrapper, .right-side {
+        background: @bg-awantengah;
+    }
+
+    .wrapper,
+    .main-sidebar,
+    .left-side {
+        background: @sidebar-awantengah !important;
+    }
+
+    .main-sidebar {
+        //padding-top: @height-awantengah;
+        .sidebar {
+            li {
+                a {
+                    color: #fff !important;
+                }
+            }
+            .user-panel {
+                text-align: center;
+                margin: 3em 0;
+                .image {
+                    padding-bottom: 1.2em;
+                    img {
+                        max-width: 65px;
+                    }
+                }
+                .info {
+                    position: relative;
+                    left: 0;
+                    padding: 0;
+                    p {
+                        margin: 0;
+                        font-weight: 400;
+                    }
+                }
+            }
+            .sidebar-menu {
+                > li.header,
+                > li:hover > a,
+                > li.active > a {
+                    background: @sidebar-hover-awantengah;
+                    color: #fff;
+                }
+                li {
+                    a {
+                        border: none;
+                    }
+                    .treeview-menu {
+                        background: @sidebar-hover-awantengah;
+                    }
+                }
+            }
+        }
+    }
+
+    //Content Header
+    .content-header {
+        background: transparent;
+    }
+
+    //Create the sidebar skin
+    .skin-dark-sidebar(@light-awantengah);
+}
+
+.skin-awantengah.layout-top-nav .main-header > .logo {
+    .logo-variant(@light-awantengah);
+}
+
+.box {
+    border-top-color: @light-awantengah;
+    .box-header > .box-tools {
+        top: 1.2em;
+    }
+}
+
+.box.box-primary {
+    border-top-color: @light-awantengah;
+}
+
+.btn-primary {
+    // background: @light-awantengah;
+    border: none;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary.hover {
+    background: @light-hover-awantengah;
+}
+
+.login-page {
+    background: #00BCD4;
+}
+
+.content-wrapper {
+    min-height: 599px;
+}
+
+.pagination>li>a, .pagination>li>span {
+    padding: 4px 10px !important;
+}
+
+/* List Product */
+.list-product {
+    .item {
+        text-align: center;
+        .price {
+            color: #e67880;
+        }
+
+        .desc {
+            color: #aaa;
+        }
+    }
+
+    .item.list-group-item {
+        float: none;
+        width: 100%;
+        background-color: #fff;
+        margin-bottom: 10px;
+        img {
+            float: left;
+        }
+    }
+
+    .item.list-group-item:before,
+    .item.list-group-item:after {
+        display: table;
+        content: " ";
+    }
+
+    .item.list-group-item:after {
+        clear: both;
+    }
+}
+/* End List Product */
+
+@media screen and (min-width: 768px) {
+    .box-body {
+        overflow: visible;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        overflow-y: auto;
+    }
+}

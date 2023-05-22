@@ -1,0 +1,87 @@
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #print-container, #print-container * {
+        visibility: visible;
+    }
+    #print-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+body{width:1190px;padding:0;margin:0;font-family: Tahoma, Geneva, Verdana, sans-serif;font-size:12px;}
+
+/** TABLE **/
+.table-page-container{height:795px;display:block;}
+table{border-collapse: collapse;}
+table.main-table-green tr td.header-table{background:#72d299;padding:5px;color:#FFF;font-size:13px;}
+table.main-table-blue tr td.header-table{background:#64A3FF;color:#FFF;font-size:12px;padding:3px;}
+table tr td.inner-content{padding:5px 0;}
+table tr td.border-red{border:1px solid #FF0000;padding:5px;}
+
+/** FABRIC **/
+span.square{text-align:left;box-sizing:border-box;width:25px;height:25px;border:1px solid #929292;float:left;padding:3px 0 0 6px;font-size:15px;}
+.fabric-text{float:left;padding: 6px 10px 0 0;}
+
+/** BUTTONS **/
+table.main-table-green tr td .buttons{width:11%;float:left;text-align:center;}
+table.main-table-green tr td .buttons img.img-button{width:120%;margin: -3px 0 0 -10px;}
+
+/** COLLAR **/
+span.img-collar-container{width:16.5%;float:left;text-align:center;}
+span.img-collar-container img.material-img{width:100%;}
+
+/** CUFFS **/
+span.cuff{width:33%;float:left;text-align: center;}
+span.cuff img.material-img{width:100%;}
+
+/** FRONT BODY **/
+span.front-body{width:50%;float:left;text-align: center;}
+span.front-body img.material-img{width:100%;}
+
+/** POCKET **/
+span.pocket{width:33%;float:left;text-align: center;}
+span.pocket img.material-img{width:100%;}
+
+/** HEM **/
+span.hem{width:50%;float:left;text-align: center;}
+span.hem img.material-img{width:100%;}
+
+/** BACK BODY **/
+span.back-body{width:18%;float:left;text-align: center;}
+span.back-body img.material-img{width:100%;}
+
+/** SIZE **/
+span.txt-size{padding-top:1px;display:inline-block;}
+span.txt-box{padding:5px;border:1px solid #929292;display: inline-block;margin:1px 0;}
+.notes{padding:5px;display:block;border:1px solid #929292;margin-top:5px;}
+
+/** FORM BLUE COLLAR */
+.txt-checkbox .txt-display{padding:2px;}
+table.main-table-blue tr td {font-size:11px;}
+
+#print-container{min-width:1190px;padding:0 20px;box-sizing: border-box;}
+#print-container.canvas-image{padding:0px;}
+img.img-check{width:18px;}
+img.img-check-header{float:right;margin:-2px 0 0 5px;}
+.p10{padding:10px;}
+.pl5{padding-left:5px;}
+.pl10{padding-left:10px;}
+.pl20{padding-left:20px;}
+.pl30{padding-left:30px;}
+.pl50{padding-left:50px;}
+.pr10{padding-right:10px;}
+.pt5{padding-top:5px;}
+.mt5{margin-top:5px;}
+.left{float:left;}
+.right{float:right;}
+.block{display:block;}
+.full-width{width:100%;}
+.bold{font-weight: bold;}
+.inline{display: inline-block;}
+.item-no-charge-txt{color:#FF0000;font-size:9px;}
+
+.table-page-container:last-child{padding-bottom:0px !important;}

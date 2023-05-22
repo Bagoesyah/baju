@@ -1,0 +1,61 @@
+<?php
+# @Author: Awan Tengah
+# @Date:   2017-02-06T16:08:00+07:00
+# @Last modified by:   Awan Tengah
+# @Last modified time: 2017-04-24T15:34:39+07:00
+?>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            <?php echo $page_title; ?>
+            <?php if (isset($sub_page_title)): ?>
+                <small><?php echo $sub_page_title; ?></small>
+            <?php endif; ?>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?php echo site_url('admin'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo site_url('admin/material_cleric_category'); ?>"><?php echo ucwords('material_cleric_category'); ?></a></li>
+            <li class="active"><?php echo $on_section . ' ' . $page_title; ?></li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Your Page Content Here -->
+        <div class="box box-primary">
+            <?php echo form_open_multipart(); ?>
+            <div class="box-body">
+                <?php alert_message(); ?>
+
+                <div class="form-group <?php echo form_error('title') ? 'has-error' : ''; ?>">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Enter Title" value="<?php echo isset($material_cleric_category) ? $material_cleric_category->title : set_value('title'); ?>">
+                    <?php echo form_error('title', '<p class="help-block text-red">', '</p>'); ?>
+                </div>
+
+                <?php if(isset($material_cleric_category)): ?>
+                    <div class="attachment-block clearfix">
+                        <img class="attachment-img" src="<?php echo !empty($material_cleric_category->image) ? base_url(path_image('material_cleric_category_path') . $material_cleric_category->image) : base_url('assets/img/no_image.png'); ?>" alt="<?php echo $material_cleric_category->title; ?>">
+                    </div>
+                <?php endif; ?>
+
+                <div class="form-group <?php echo form_error('image') ? 'has-error' : ''; ?>">
+                    <label for="image">Image</label>
+                    <input type="file" name="image" id="image" class="form-control" placeholder="Enter Image" value="<?php echo isset($material_cleric_category) ? $material_cleric_category->image : set_value('image'); ?>">
+                    <?php echo form_error('image', '<p class="help-block text-red">', '</p>'); ?>
+                </div>
+
+            </div><!-- /.box-body -->
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <?php echo form_close(); ?>
+        </div>
+
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->

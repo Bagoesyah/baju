@@ -28,10 +28,10 @@
                     <div class="category-custom">
                         <!-- Nav tabs -->
                         <ul class="nav nav-pills option-tab" role="tablist">
-                            <li class="active"><a href="#amf_stitch" data-toggle="tab" data-material="option" data-category="amf_stitch">13 Stitch Thread</a></li>
-                            <li><a href="#interlining" data-toggle="tab" data-material="option" data-category="interlining">15 Interlining</a></li>
-                            <li><a href="#sewing" data-toggle="tab" data-material="option" data-category="sewing">16 Sewing</a></li>
-                            <li><a href="#tape" data-toggle="tab" data-material="option" data-category="tape">17 Tape</a></li>
+                            <li class="active"><a class="tab-menu-category" href="#amf_stitch" data-toggle="tab" data-material="option" data-category="amf_stitch">13 Stitch Thread</a></li>
+                            <li><a class="tab-menu-category" href="#interlining" data-toggle="tab" data-material="option" data-category="interlining">15 Interlining</a></li>
+                            <li><a class="tab-menu-category" href="#sewing" data-toggle="tab" data-material="option" data-category="sewing">16 Sewing</a></li>
+                            <li><a class="tab-menu-category" href="#tape" data-toggle="tab" data-material="option" data-category="tape">17 Tape</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -85,6 +85,16 @@ $(document).ready(function() {
         category: category
     }
     show_all_material(param);
+
+        // menu category
+        $(".tab-menu-category").click(function (e) {
+          const category = $(e.target).attr("data-category");
+          var param = {
+            material: material,
+            category: `${category}`,
+        }
+        show_all_materials(param);
+        });
 
     <?php $this->load->view('template/frontend/custom/_js_objects'); ?>
 });

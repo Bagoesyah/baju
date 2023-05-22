@@ -27,10 +27,10 @@
                 <div class="panel-body padding-0">
                     <div class="category-custom">
                         <!-- Nav tabs -->
-                        <ul class="nav nav-pills body-type-tab" role="tablist">
-                            <li class="active"><a href="#front" data-toggle="tab" data-material="body_type" data-category="front">04 Front</a></li>
-                            <li><a href="#hem" data-toggle="tab" data-material="body_type" data-category="hem">06 Hem</a></li>
-                            <li><a href="#back" data-toggle="tab" data-material="body_type" data-category="back">07 Back</a></li>
+                        <ul class="nav nav-pills body-type-tab menu" role="tablist">
+                            <li class="active"><a class="tab-menu-category" href="#front" data-toggle="tab" data-material="body_type" data-category="front">04 Front</a></li>
+                            <li><a class="tab-menu-category" href="#hem" data-toggle="tab" data-material="body_type" data-category="hem">06 Hem</a></li>
+                            <li><a class="tab-menu-category" href="#back" data-toggle="tab" data-material="body_type" data-category="back">07 Back</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -80,9 +80,19 @@ $(document).ready(function() {
 
     var param = {
         material: material,
-        category: category
+        category: `${category}`,
     }
-    show_all_material(param);
+    show_all_materials(param);
+
+        // menu category
+        $(".tab-menu-category").click(function (e) {
+          const category = $(e.target).attr("data-category");
+          var param = {
+            material: material,
+            category: `${category}`,
+        }
+        show_all_materials(param);
+        });
 
     <?php $this->load->view('template/frontend/custom/_js_objects'); ?>
 });

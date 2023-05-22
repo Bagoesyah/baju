@@ -14,9 +14,10 @@
         </div> -->
         <div class="clearfix"></div>
 
-        <div class="col-sm-7 col-lg-7">
+        <div class="col-sm-7 col-lg-7" style="position:relative;">
+            <div class="" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:101;"></div>
             <div class="row">
-                <canvas class="col-sm-12 text-center" id="objcontainer"></canvas>
+                <canvas class="col-sm-12 text-center" id="objcontainer" style="position:relative;z-index:100;"></canvas>
             </div>
         </div>
         <div class="col-sm-5">
@@ -716,11 +717,17 @@
         </div>
     </div>
 </div>
-
+<div>
+    <img id="test-img" src="">
+</div>
 <script>
 $(document).ready(function() {
     get_price_material_custom();
 
     <?php $this->load->view('template/frontend/custom/_js_objects'); ?>
+    setTimeout(function () {
+        img = setSceneImageSession();
+        $('#test-img').prop('src', img);
+    }, 100);
 });
 </script>

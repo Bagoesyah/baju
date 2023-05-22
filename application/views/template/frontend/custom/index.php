@@ -12,7 +12,7 @@
 		const loadView = (path) => {
 			$('#content-custom').load(base_url + `custom/${path}`);
 			// $.get(base_url + `custom/${path}`, function(data) {
-			// 	$("#content").html(data);
+			// 	$("#content-custom").html(data);
 			// })
 		}
 		// first load view
@@ -23,6 +23,7 @@
 			const menuName = $(this).attr('data-menu')
 			// console.log(menuName)
 			if (menuName) return loadView(menuName);
+			// if (menuName) return console.log(menuName);
 			if (!menuName) return console.error("page not found");
 		});
 

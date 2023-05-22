@@ -40,9 +40,9 @@
                     <div class="category-custom">
                         <!-- Nav tabs -->
                         <ul class="nav nav-pills material-list embroidery-tab" role="tablist">
-                            <li class="active"><a href="#position" data-toggle="tab" data-material="embroidery" data-category="position">Position</a></li>
-                            <li><a href="#color" data-toggle="tab" data-material="embroidery" data-category="color">Color</a></li>
-                            <li><a href="#font" data-toggle="tab" data-material="embroidery" data-category="font">Font</a></li>
+                            <li class="active"><a class="tab-menu-category" href="#position" data-toggle="tab" data-material="embroidery" data-category="position">Position</a></li>
+                            <li><a class="tab-menu-category" href="#color" data-toggle="tab" data-material="embroidery" data-category="color">Color</a></li>
+                            <li><a class="tab-menu-category" href="#font" data-toggle="tab" data-material="embroidery" data-category="font">Font</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -97,6 +97,17 @@ $(document).ready(function() {
         key: key
     }
     show_all_material(param);
+    
+        // menu category
+        $(".tab-menu-category").click(function (e) {
+          const category = $(e.target).attr("data-category");
+          var param = {
+            material: material,
+            category: `${category}`,
+            key: key
+        }
+        show_all_materials(param);
+        });
 
     $('#embroidery_text').on('blur', function() {
         $.ajax({

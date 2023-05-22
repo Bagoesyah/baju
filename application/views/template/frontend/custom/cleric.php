@@ -28,10 +28,10 @@
                     <div class="category-custom">
                         <!-- Nav tabs -->
                         <ul class="nav nav-pills cleric-tab" role="tablist">
-                            <li class="active"><a href="#cleric-1" aria-controls="cleric-1" role="tab" class="category-cleric" data-toggle="tab" data-idcategory="1" data-material="cleric" data-header="cleric">Collar <br/>&amp; Cuffs</a></li>
-                            <li><a href="#cleric-2" aria-controls="cleric-2" role="tab" class="category-cleric" data-toggle="tab" data-idcategory="2" data-material="cleric" data-header="cleric">Collar/Cuffs <br/>&amp; Front Placket</a></li>
-                            <li><a href="#cleric-3" aria-controls="cleric-3" role="tab" class="category-cleric" data-toggle="tab" data-idcategory="3" data-material="cleric" data-header="cleric">Inner Collar Stand <br/>&amp; Inner Cuffs</a></li>
-                            <li><a href="#cleric-4" aria-controls="cleric-4" role="tab" class="category-cleric" data-toggle="tab" data-idcategory="4" data-material="cleric" data-header="cleric">Inner Collar Stand/Inner Cuffs <br/>&amp; Lower Placket</a></li>
+                            <li class="active"><a class="tab-menu-category" href="#cleric-1" aria-controls="cleric-1" role="tab" class="category-cleric" data-toggle="tab" data-idcategory="1" data-material="cleric" data-header="cleric">Collar <br/>&amp; Cuffs</a></li>
+                            <li><a class="tab-menu-category" href="#cleric-2" aria-controls="cleric-2" role="tab" class="category-cleric" data-toggle="tab" data-idcategory="2" data-material="cleric" data-header="cleric">Collar/Cuffs <br/>&amp; Front Placket</a></li>
+                            <li><a class="tab-menu-category" href="#cleric-3" aria-controls="cleric-3" role="tab" class="category-cleric" data-toggle="tab" data-idcategory="3" data-material="cleric" data-header="cleric">Inner Collar Stand <br/>&amp; Inner Cuffs</a></li>
+                            <li><a class="tab-menu-category" href="#cleric-4" aria-controls="cleric-4" role="tab" class="category-cleric" data-toggle="tab" data-idcategory="4" data-material="cleric" data-header="cleric">Inner Collar Stand/Inner Cuffs <br/>&amp; Lower Placket</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -109,6 +109,25 @@ $(document).ready(function() {
     }
     get_category_cleric(param);
     show_all_material_cleric(param);
+        // menu category
+        $(".tab-menu-category").click(function (e) {
+          const category = $(e.target).attr("data-idcategory");
+          var param = {
+            // material: material,
+            // category: `${category}`,
+            material: 'cleric',
+            id: '1',
+            category: 'collar',
+            idcategory: `${category}`,
+            idsubcategory: '1',
+            cleric_type: '1',
+            sub: '1'
+        }
+        // show_all_materials(param);
+        get_category_cleric(param);
+        show_all_material_cleric(param);
+        });
+    
 
     <?php $this->load->view('template/frontend/custom/_js_objects'); ?>
 });

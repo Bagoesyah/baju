@@ -52,7 +52,7 @@
     <div class="col-sm-7 col-lg-7"></div>
     <div class="btn-group dropdown col-sm-5 col-lg-5">
       <a class="btn dropdown-toggle btn-label btn-select" data-toggle="dropdown" href="#">
-        <div>Custom</div>
+        <div>01 Fabric</div>
         <span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
             <li><a href="javascript:void(0);" data-menu="fabric" class="nav_menu">
@@ -95,6 +95,7 @@
 <br>
 <div id="cr_verify"></div>
 
+<!-- dropdown -->
 <script>
 $(".dropdown-menu li a").click(function(){
   var selText = $(this).text();
@@ -102,6 +103,7 @@ $(".dropdown-menu li a").click(function(){
 });
 </script>
 
+<!-- check verify -->
 <?php
 if ($this->session->flashdata('check_verify')) {
     ?> 
@@ -110,3 +112,14 @@ if ($this->session->flashdata('check_verify')) {
 }
 ?>
 
+<!-- <?php
+    $check_verify = $this->session->flashdata('check_verify');
+    // if ($this->session->flashdata($check_verify)) {
+    //     // echo '<div class="alert alert-danger alert-flash">' . $check_verify . '</div>';
+    //     //  $this->session->unset_userdata('check_verify');
+    //     ?> 
+    //     <div class="alert alert-danger alert-flash"><?php echo $this->session->flashdata('check_verify'); ?></div>
+    //     <?php
+    // }
+
+?> -->

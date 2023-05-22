@@ -66,6 +66,7 @@
                                         </td>
                                         -->
                                         <td style="text-align:right;">
+                                            <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#size-cart-modal" data-menu="btn-size-chart" id="btn-size-chart"><i class="ion-ios-keypad-outline"></i> View size chart</button> -->
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#size-cart-modal"><i class="ion-ios-keypad-outline"></i> View size chart</button>
                                         </td>
                                     </tr>
@@ -364,6 +365,135 @@
             <div class="modal-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="list-view-chart">
+                        <!-- temporary static data size chart -->
+                        <tbody>
+                            <tr>
+                                <td>Neck Size</td>
+                                <td class="head-neck" colspan="5" style="text-align:center;">
+                                    38
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="200">Body Type</td>
+                                <td width="150" style="text-align:center;">PM2 (Slim)</td>
+                                <td width="150" style="text-align:center;">PM3 (Standard 1)</td>
+                                <td width="150" style="text-align:center;">PM4 (Standard 2)</td>
+                                <td width="150" style="text-align:center;">PM5 (Big 1)</td>
+                                <td width="150" style="text-align:center;">PM7 (Big 2)</td>
+                            </tr>
+                            <tr>
+                                <td>Neck</td>
+                                <td><?php echo isset($size['PM2']['neck']) ? $size['PM2']['neck'] : ''; ?>38</td>
+                                <td><?php echo isset($size['PM3']['neck']) ? $size['PM3']['neck'] : ''; ?>38</td>
+                                <td><?php echo isset($size['PM4']['neck']) ? $size['PM4']['neck'] : ''; ?>38</td>
+                                <td><?php echo isset($size['PM5']['neck']) ? $size['PM5']['neck'] : ''; ?>38</td>
+                                <td><?php echo isset($size['PM7']['neck']) ? $size['PM7']['neck'] : ''; ?>38</td>
+                            </tr>
+                            <tr>
+                                <td>Shoulder</td>
+                                <td><?php echo isset($size['PM2']['shoulder']) ? $size['PM2']['shoulder'] : ''; ?>43</td>
+                                <td><?php echo isset($size['PM3']['shoulder']) ? $size['PM3']['shoulder'] : ''; ?>44</td>
+                                <td><?php echo isset($size['PM4']['shoulder']) ? $size['PM4']['shoulder'] : ''; ?>45</td>
+                                <td><?php echo isset($size['PM5']['shoulder']) ? $size['PM5']['shoulder'] : ''; ?>46</td>
+                                <td><?php echo isset($size['PM7']['shoulder']) ? $size['PM7']['shoulder'] : ''; ?>48</td>
+                            </tr>
+                            <tr>
+                                <td>Chest</td>
+                                <td><?php echo isset($size['PM2']['chest']) ? $size['PM2']['chest'] : ''; ?>104</td>
+                                <td><?php echo isset($size['PM3']['chest']) ? $size['PM3']['chest'] : ''; ?>106</td>
+                                <td><?php echo isset($size['PM4']['chest']) ? $size['PM4']['chest'] : ''; ?>108</td>
+                                <td><?php echo isset($size['PM5']['chest']) ? $size['PM5']['chest'] : ''; ?>110</td>
+                                <td><?php echo isset($size['PM7']['chest']) ? $size['PM7']['chest'] : ''; ?>114</td>
+                            </tr>
+                            <tr>
+                                <td>Waist</td>
+                                <td><?php echo isset($size['PM2']['waist']) ? $size['PM2']['waist'] : ''; ?>94</td>
+                                <td><?php echo isset($size['PM3']['waist']) ? $size['PM3']['waist'] : ''; ?>96</td>
+                                <td><?php echo isset($size['PM4']['waist']) ? $size['PM4']['waist'] : ''; ?>98</td>
+                                <td><?php echo isset($size['PM5']['waist']) ? $size['PM5']['waist'] : ''; ?>102</td>
+                                <td><?php echo isset($size['PM7']['waist']) ? $size['PM7']['waist'] : ''; ?>106</td>
+                            </tr>
+                            <tr>
+                                <td>Hip</td>
+                                <td><?php echo isset($size['PM2']['hip']) ? $size['PM2']['hip'] : ''; ?>97</td>
+                                <td><?php echo isset($size['PM3']['hip']) ? $size['PM3']['hip'] : ''; ?>99</td>
+                                <td><?php echo isset($size['PM4']['hip']) ? $size['PM4']['hip'] : ''; ?>101</td>
+                                <td><?php echo isset($size['PM5']['hip']) ? $size['PM5']['hip'] : ''; ?>105</td>
+                                <td><?php echo isset($size['PM7']['hip']) ? $size['PM7']['hip'] : ''; ?>109</td>
+                            </tr>
+                            <tr>
+                                <td>Arm Hole</td>
+                                <td><?php echo isset($size['PM2']['arm_hole']) ? $size['PM2']['arm_hole'] : ''; ?>47</td>
+                                <td><?php echo isset($size['PM3']['arm_hole']) ? $size['PM3']['arm_hole'] : ''; ?>48</td>
+                                <td><?php echo isset($size['PM4']['arm_hole']) ? $size['PM4']['arm_hole'] : ''; ?>49</td>
+                                <td><?php echo isset($size['PM5']['arm_hole']) ? $size['PM5']['arm_hole'] : ''; ?>50</td>
+                                <td><?php echo isset($size['PM7']['arm_hole']) ? $size['PM7']['arm_hole'] : ''; ?>52</td>
+                            </tr>
+                            <tr>
+                                <td>Back Length (~88cm)</td>
+                                <td><?php echo isset($size['PM2']['back_length_88']) ? $size['PM2']['back_length_88'] : ''; ?>78</td>
+                                <td><?php echo isset($size['PM3']['back_length_88']) ? $size['PM3']['back_length_88'] : ''; ?>78</td>
+                                <td><?php echo isset($size['PM4']['back_length_88']) ? $size['PM4']['back_length_88'] : ''; ?>78</td>
+                                <td><?php echo isset($size['PM5']['back_length_88']) ? $size['PM5']['back_length_88'] : ''; ?>78</td>
+                                <td><?php echo isset($size['PM7']['back_length_88']) ? $size['PM7']['back_length_88'] : ''; ?>78</td>
+                            </tr>
+                            <tr>
+                                <td>Back Length (89cm~)</td>
+                                <td><?php echo isset($size['PM2']['back_length_89']) ? $size['PM2']['back_length_89'] : ''; ?>81</td>
+                                <td><?php echo isset($size['PM3']['back_length_89']) ? $size['PM3']['back_length_89'] : ''; ?>81</td>
+                                <td><?php echo isset($size['PM4']['back_length_89']) ? $size['PM4']['back_length_89'] : ''; ?>81</td>
+                                <td><?php echo isset($size['PM5']['back_length_89']) ? $size['PM5']['back_length_89'] : ''; ?>81</td>
+                                <td><?php echo isset($size['PM7']['back_length_89']) ? $size['PM7']['back_length_89'] : ''; ?>81</td>
+                            </tr>
+                            <tr>
+                                <td>Aloha (~88cm)</td>
+                                <td><?php echo isset($size['PM2']['aloha_88']) ? $size['PM2']['aloha_88'] : ''; ?>71</td>
+                                <td><?php echo isset($size['PM3']['aloha_88']) ? $size['PM3']['aloha_88'] : ''; ?>71</td>
+                                <td><?php echo isset($size['PM4']['aloha_88']) ? $size['PM4']['aloha_88'] : ''; ?>71</td>
+                                <td><?php echo isset($size['PM5']['aloha_88']) ? $size['PM5']['aloha_88'] : ''; ?>71</td>
+                                <td><?php echo isset($size['PM7']['aloha_88']) ? $size['PM7']['aloha_88'] : ''; ?>71</td>
+                            </tr>
+                            <tr>
+                                <td>Aloha (89cm~)</td>
+                                <td><?php echo isset($size['PM2']['aloha_89']) ? $size['PM2']['aloha_89'] : ''; ?>74</td>
+                                <td><?php echo isset($size['PM3']['aloha_89']) ? $size['PM3']['aloha_89'] : ''; ?>74</td>
+                                <td><?php echo isset($size['PM4']['aloha_89']) ? $size['PM4']['aloha_89'] : ''; ?>74</td>
+                                <td><?php echo isset($size['PM5']['aloha_89']) ? $size['PM5']['aloha_89'] : ''; ?>74</td>
+                                <td><?php echo isset($size['PM7']['aloha_89']) ? $size['PM7']['aloha_89'] : ''; ?>74</td>
+                            </tr>
+                            <tr>
+                                <td>Cuffs Circle</td>
+                                <td><?php echo isset($size['PM2']['cuffs_circle']) ? $size['PM2']['cuffs_circle'] : ''; ?>23</td>
+                                <td><?php echo isset($size['PM3']['cuffs_circle']) ? $size['PM3']['cuffs_circle'] : ''; ?>23</td>
+                                <td><?php echo isset($size['PM4']['cuffs_circle']) ? $size['PM4']['cuffs_circle'] : ''; ?>23</td>
+                                <td><?php echo isset($size['PM5']['cuffs_circle']) ? $size['PM5']['cuffs_circle'] : ''; ?>24</td>
+                                <td><?php echo isset($size['PM7']['cuffs_circle']) ? $size['PM7']['cuffs_circle'] : ''; ?>24</td>
+                            </tr>
+                            <tr>
+                                <td>Short Sleeve</td>
+                                <td><?php echo isset($size['PM2']['short_sleeve']) ? $size['PM2']['short_sleeve'] : ''; ?>24</td>
+                                <td><?php echo isset($size['PM3']['short_sleeve']) ? $size['PM3']['short_sleeve'] : ''; ?>24</td>
+                                <td><?php echo isset($size['PM4']['short_sleeve']) ? $size['PM4']['short_sleeve'] : ''; ?>24</td>
+                                <td><?php echo isset($size['PM5']['short_sleeve']) ? $size['PM5']['short_sleeve'] : ''; ?>24</td>
+                                <td><?php echo isset($size['PM7']['short_sleeve']) ? $size['PM7']['short_sleeve'] : ''; ?>25</td>
+                            </tr>
+                            <tr>
+                                <td>Sleeve Circle</td>
+                                <td><?php echo isset($size['PM2']['sleeve_circle']) ? $size['PM2']['sleeve_circle'] : ''; ?>34</td>
+                                <td><?php echo isset($size['PM3']['sleeve_circle']) ? $size['PM3']['sleeve_circle'] : ''; ?>35</td>
+                                <td><?php echo isset($size['PM4']['sleeve_circle']) ? $size['PM4']['sleeve_circle'] : ''; ?>35</td>
+                                <td><?php echo isset($size['PM5']['sleeve_circle']) ? $size['PM5']['sleeve_circle'] : ''; ?>36</td>
+                                <td><?php echo isset($size['PM7']['sleeve_circle']) ? $size['PM7']['sleeve_circle'] : ''; ?>38</td>
+                            </tr>
+                            <tr>
+                                <td>Sleeve Type</td>
+                                <td><?php echo isset($size['PM2']['sleeve_type']) ? ucwords($size['PM2']['sleeve_type']) : ''; ?>Regular</td>
+                                <td><?php echo isset($size['PM3']['sleeve_type']) ? ucwords($size['PM3']['sleeve_type']) : ''; ?>Regular</td>
+                                <td><?php echo isset($size['PM4']['sleeve_type']) ? ucwords($size['PM4']['sleeve_type']) : ''; ?>Regular</td>
+                                <td><?php echo isset($size['PM5']['sleeve_type']) ? ucwords($size['PM5']['sleeve_type']) : ''; ?>Regular</td>
+                                <td><?php echo isset($size['PM7']['sleeve_type']) ? ucwords($size['PM7']['sleeve_type']) : ''; ?>Regular</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

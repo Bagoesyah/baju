@@ -1,3 +1,24 @@
+<!-- <script>
+    function cleric(){
+    
+    // optional: don't cache ajax to force the content to be fresh
+    $.ajaxSetup ({
+        cache: false
+    });
+
+    // specify loading spinner
+    var spinner = "<img src='http://i.imgur.com/pKopwXp.gif' alt='loading...' />";
+    
+    // specify the server/url you want to load data from
+    var url = "http://fiddle.jshell.net/dvb0wpLs/show/";
+    
+    // on click, load the data dynamically into the #result div
+    $('.nav_menu').click(function(){
+        $('#content-custom').html(spinner).load('template/frontend/custom/cleric', $data);
+    });
+
+};
+</script> -->
 <?php
 # @Author: Awan Tengah
 # @Date:   2017-03-17T13:59:01+07:00
@@ -35,6 +56,8 @@ class Custom extends MY_Controller {
         $url = site_url($this->uri->uri_string());
         $redirect_url = $_SERVER['QUERY_STRING'] ? $url.'?'.$_SERVER['QUERY_STRING'] : $url;
         $this->session->set_userdata('redirect', $redirect_url);
+        // warning
+        $this->session->keep_flashdata('check_verify');
     }
 
     // public function menu()
@@ -55,6 +78,7 @@ class Custom extends MY_Controller {
 
         $this->_nav_head = 'custom';
         $this->render('custom/index');
+        // $this->load->view('template/frontend/custom/index');
     }
 
 
@@ -65,9 +89,6 @@ class Custom extends MY_Controller {
         $this->_nav_head = 'fabric';
         $this->load->view('template/frontend/custom/fabric', $data);
         // $this->render('custom/fabric', $data);
-
-        // var_dump($data);
-        // echo "<script>console.log('{$data}' );</script>";
     }
     
     public function collar()
@@ -83,7 +104,7 @@ class Custom extends MY_Controller {
         $data['material_buttons'] = get_data_curl(base_url('api/material/get_material_buttons?category=button'));
         $data['count_buttons'] = $this->material_buttons_model->count();
         $this->_nav_head = 'buttons';
-        $this->load->view('template/frontend/custom/buttons', $data);
+        // $this->load->view('template/frontend/custom/buttons', $data);
     }
 
     public function cuffs()
@@ -94,7 +115,6 @@ class Custom extends MY_Controller {
         $data['count_sleeve'] = $data['material_sleeve']->STATUS == 'FAILED' ? 0 : count($data['material_sleeve']->DATA);
         $this->_nav_head = 'cuff';
         $this->load->view('template/frontend/custom/cuff', $data);
-
         // $this->render('custom/cuff', $data);
     }
 
@@ -102,30 +122,36 @@ class Custom extends MY_Controller {
         $data['material_body_type'] = get_data_curl(base_url('api/material/get_material_body_type?category=front'));
         $this->_nav_head = 'body_type';
         $this->load->view('template/frontend/custom/body_type', $data);
+        // $this->render('custom/body_type', $data);
     }
 
     public function cleric() {
+        // $this->session->set_flashdata('check_verify', 'Ccccccannot proceed to Verify, you must complete the order.');
         $data['material_cleric'] = get_data_curl(base_url('api/material/get_material_fabric'));
         $this->_nav_head = 'cleric';
         $this->load->view('template/frontend/custom/cleric', $data);
+        // $this->render('custom/cleric', $data);
     }
 
     public function pocket() {
         $data['material_pocket'] = get_data_curl(base_url('api/material/get_material_pocket'));
         $this->_nav_head = 'pocket';
         $this->load->view('template/frontend/custom/pocket', $data);
+        // $this->render('custom/pocket', $data);
     }
 
     public function embroidery() {
         $data['material_embroidery'] = get_data_curl(base_url('api/material/get_material_embroidery?category=position'));
         $this->_nav_head = 'embroidery';
         $this->load->view('template/frontend/custom/embroidery', $data);
+        // $this->render('custom/embroidery', $data);
     }
 
     public function option() {
         $data['material_option'] = get_data_curl(base_url('api/material/get_material_option?category=amf_stitch'));
         $this->_nav_head = 'option';
         $this->load->view('template/frontend/custom/option', $data);
+        // $this->render('custom/option', $data);
     }
 
     public function other() {
@@ -137,7 +163,117 @@ class Custom extends MY_Controller {
         $data['chest_circumference'] = get_data_curl(base_url('api/material/get_material_chest_circumference'));
         $this->_nav_head = 'other';
         $this->load->view('template/frontend/custom/other', $data);
+        // $this->render('custom/other', $data);
     }
+
+    // public function verify() {
+    //     $data = array();
+    //     $this->_nav_head = 'verify';
+
+    //     $data['embroidery_text'] = $this->session->userdata('sess_embroidery_text') && $this->session->userdata('sess_embroidery_text') != '' ? 
+    //         $this->session->userdata('sess_embroidery_text') : NULL;
+        
+    //     if(is_null(get_session('around_neck_selection'))) {
+    //         $this->session->set_flashdata('check_verify', 'Cannot proceed to Verify, you must complete the order.');
+    //         redirect('custom/other', 'location');
+    //     }
+
+    //     // if(!is_null(get_session('id_size')) && !empty(get_session('id_size'))) {
+    //     //     // $data['id_size'] = $this->material_neck_size_model->first(get_session('id_size'));
+    //     // }else {
+    //     //      $this->session->set_flashdata('check_verify', 'Cannot proceed to Verify, you must complete the order.');
+    //     //      redirect('custom/other', 'location');
+    //     // }
+
+    //     if (
+    //         (!is_null(get_session('id_embroidery_position')) && (is_null(get_session('id_embroidery_font')) || is_null(get_session('id_embroidery_color')))) ||
+    //         (!is_null(get_session('id_embroidery_font')) && (is_null(get_session('id_embroidery_position')) || is_null(get_session('id_embroidery_color')))) ||
+    //         (!is_null(get_session('id_embroidery_color')) && (is_null(get_session('id_embroidery_position')) || is_null(get_session('id_embroidery_color')))) ||
+    //         ((!is_null(get_session('id_embroidery_color')) || !is_null(get_session('id_embroidery_position')) || !is_null(get_session('id_embroidery_font'))) && !$data['embroidery_text'])
+    //     ) {
+    //         $this->session->set_flashdata('check_verify', 'Cannot proceed to Verify, you must complete the order (Embroidery position, embroidery font, embroidery color and embroidery text).');
+    //         redirect('custom/embroidery', 'location');
+    //     }
+
+    //     if(!is_null(get_session('id_fabric')) && !empty(get_session('id_fabric'))) {
+    //         $data['fabric'] = $this->material_fabric_model->first(get_session('id_fabric'));
+    //     }
+    //     else {
+    //          $this->session->set_flashdata('check_verify', 'Cannot proceed to Verify, you must complete the order.');
+    //          redirect('custom/other', 'location');
+    //     }
+    //     if(!is_null(get_session('id_collar')) && !empty(get_session('id_collar'))) {
+    //         $data['collar'] = $this->material_collar_model->first(get_session('id_collar'));
+    //     }
+    //     if(!is_null(get_session('id_cuff')) && !empty(get_session('id_cuff'))) {
+    //         $data['cuff'] = $this->material_cuff_model->first(get_session('id_cuff'));
+    //     }
+    //     if(!is_null(get_session('id_sleeve')) && !empty(get_session('id_sleeve'))) {
+    //         $data['sleeve'] = $this->material_cuff_model->first(get_session('id_sleeve'));
+    //     }
+    //     if(!is_null(get_session('id_body_type_front')) && !empty(get_session('id_body_type_front'))) {
+    //         $data['body_type_front'] = $this->material_body_type_model->first(get_session('id_body_type_front'));
+    //     }
+    //     if(!is_null(get_session('id_body_type_back')) && !empty(get_session('id_body_type_back'))) {
+    //         $data['body_type_back'] = $this->material_body_type_model->first(get_session('id_body_type_back'));
+    //     }
+    //     if(!is_null(get_session('id_body_type_hem')) && !empty(get_session('id_body_type_hem'))) {
+    //         $data['body_type_hem'] = $this->material_body_type_model->first(get_session('id_body_type_hem'));
+    //     }
+    //     if(!is_null(get_session('id_pocket')) && !empty(get_session('id_pocket'))) {
+    //         $data['pocket'] = $this->material_pocket_model->first(get_session('id_pocket'));
+    //     }
+    //     if(!is_null(get_session('id_button')) && !empty(get_session('id_button'))) {
+    //         $data['button'] = $this->material_buttons_model->first(get_session('id_button'));
+    //     }
+    //     if(!is_null(get_session('id_button_hole')) && !empty(get_session('id_button_hole'))) {
+    //         $data['button_hole'] = $this->material_buttons_model->first(get_session('id_button_hole'));
+    //     }
+    //     if(!is_null(get_session('id_button_thread')) && !empty(get_session('id_button_thread'))) {
+    //         $data['button_thread'] = $this->material_buttons_model->first(get_session('id_button_thread'));
+    //     }
+    //     if(!is_null(get_session('id_cleric_fabric')) && !empty(get_session('id_cleric_fabric'))) {
+    //         $data['cleric_fabric'] = $this->material_fabric_model->first(get_session('id_cleric_fabric'));
+    //     }
+    //     if(!is_null(get_session('id_cleric_stitch')) && !empty(get_session('id_cleric_stitch'))) {
+    //         $data['cleric_stitch'] = $this->material_fabric_model->first(get_session('id_cleric_stitch'));
+    //     }
+    //     if(!is_null(get_session('id_embroidery_position')) && !empty(get_session('id_embroidery_position'))) {
+    //         $data['embroidery_position'] = $this->material_embroidery_model->first(get_session('id_embroidery_position'));
+    //     }
+    //     if(!is_null(get_session('id_embroidery_font')) && !empty(get_session('id_embroidery_font'))) {
+    //         $data['embroidery_font'] = $this->material_embroidery_model->first(get_session('id_embroidery_font'));
+    //     }
+    //     if(!is_null(get_session('id_embroidery_color')) && !empty(get_session('id_embroidery_color'))) {
+    //         $data['embroidery_color'] = $this->material_embroidery_model->first(get_session('id_embroidery_color'));
+    //     }
+    //     if(!is_null(get_session('id_option_amf_stitch')) && !empty(get_session('id_option_amf_stitch'))) {
+    //         $data['option_amf_stitch'] = $this->material_option_model->first(get_session('id_option_amf_stitch'));
+    //     }
+    //     if(!is_null(get_session('id_option_interlining')) && !empty(get_session('id_option_interlining'))) {
+    //         $data['option_interlining'] = $this->material_option_model->first(get_session('id_option_interlining'));
+    //     }
+    //     if(!is_null(get_session('id_option_sewing')) && !empty(get_session('id_option_sewing'))) {
+    //         $data['option_sewing'] = $this->material_option_model->first(get_session('id_option_sewing'));
+    //     }
+    //     if(!is_null(get_session('id_option_tape')) && !empty(get_session('id_option_tape'))) {
+    //         $data['option_tape'] = $this->material_option_model->first(get_session('id_option_tape'));
+    //     }
+
+    //     if(!is_null(get_session('cleric_type_id')) && !empty(get_session('cleric_type_id'))) {
+    //         if(!is_null(get_session('id_cleric')) && !empty(get_session('id_cleric'))) {
+    //             $data['cleric'] = $this->material_cleric_model->all(
+    //                 array(
+    //                     'fields' => 'material_cleric.*',
+    //                     'where' => array(
+    //                         'material_cleric.id' => get_session('id_cleric')
+    //                     )
+    //                 ), false
+    //             );
+    //         }
+    //     }
+    // $this->load->view('template/frontend/custom/verify', $data);
+    // }
 
     public function verify() {
         $data = array();
@@ -151,13 +287,6 @@ class Custom extends MY_Controller {
             redirect('custom/other', 'location');
         }
 
-        // if(!is_null(get_session('id_size')) && !empty(get_session('id_size'))) {
-        //     // $data['id_size'] = $this->material_neck_size_model->first(get_session('id_size'));
-        // }else {
-        //      $this->session->set_flashdata('check_verify', 'Cannot proceed to Verify, you must complete the order.');
-        //      redirect('custom/other', 'location');
-        // }
-
         if (
             (!is_null(get_session('id_embroidery_position')) && (is_null(get_session('id_embroidery_font')) || is_null(get_session('id_embroidery_color')))) ||
             (!is_null(get_session('id_embroidery_font')) && (is_null(get_session('id_embroidery_position')) || is_null(get_session('id_embroidery_color')))) ||
@@ -170,10 +299,9 @@ class Custom extends MY_Controller {
 
         if(!is_null(get_session('id_fabric')) && !empty(get_session('id_fabric'))) {
             $data['fabric'] = $this->material_fabric_model->first(get_session('id_fabric'));
-        }
-        else {
-             $this->session->set_flashdata('check_verify', 'Cannot proceed to Verify, you must complete the order.');
-             redirect('custom/other', 'location');
+        } else {
+            $this->session->set_flashdata('check_verify', 'Cannot proceed to Verify, you must complete the order.');
+            redirect('custom/fabric', 'location');
         }
         if(!is_null(get_session('id_collar')) && !empty(get_session('id_collar'))) {
             $data['collar'] = $this->material_collar_model->first(get_session('id_collar'));
@@ -246,6 +374,7 @@ class Custom extends MY_Controller {
             }
         }
         $this->load->view('template/frontend/custom/verify', $data);
+        // $this->render('custom/verify', $data);
     }
 
     public function unset_custom_param()
@@ -370,6 +499,16 @@ class Custom extends MY_Controller {
         // SET DEFAULT SESSION
 
         // FABRIC: NONE
+        // $q_fabric = $this->db->query("
+        //     SELECT * FROM material_fabric WHERE 
+        // ");
+        // if ($q_fabric->num_rows() > 0) {
+        //     $row_fabric = $q_fabric->row();
+        //     $this->session->set_userdata('id_fabric', $row_fabric->id);
+        //     $this->session->set_userdata('price_id_fabric', $row_fabric->price);
+        //     // $this->session->set_userdata('skin_id_fabric', $row_fabric->image);
+        // }
+        // $q_fabric = $this->db->query("select * from material_fabric WHERE");
 
         // COLLAR
         $q_collar = $this->db->query("
@@ -520,6 +659,7 @@ class Custom extends MY_Controller {
         } else {
             echo json_encode(array('status' => 500));
         }
+        // print_r('test');
     }
 
 }

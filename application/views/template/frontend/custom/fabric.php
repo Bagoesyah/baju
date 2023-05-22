@@ -6,6 +6,14 @@
 ?>
 <?php $this->load->view('template/frontend/custom/_objects'); ?>
 
+
+
+<!-- <style>
+      .menu {
+        display: inline;
+      }
+</style> -->
+
 <div class="container custom text-justify">
     <div class="row">
         <!-- <div class="col-sm-7">
@@ -25,20 +33,27 @@
                 </div>
                 <div class="panel-body padding-0">
                     <div class="form-group search-box-custom">
-                        <input type="search" id="key_search" name="fabric_search" class="form-control" placeholder="Fabric Search">
+                        <input type="search" id="key_search" name="fabric_search" class="form-control" placeholder="Fabric Search" >
                     </div>
                     <div class="category-custom">
                         <!-- Nav tabs -->
-                        <ul class="nav nav-pills material-list fabric-tab" role="tablist">
-                            <li class="active"><a href="#standard" data-toggle="tab" data-material="fabric" data-category="standard">Standard</a></li>
-                            <li><a href="#premium" data-toggle="tab" data-material="fabric" data-category="premium">Premium</a></li>
-                            <li><a href="#super_premium" data-toggle="tab" data-material="fabric" data-category="super_premium">Super Premium</a></li>
+                        <ul class="nav nav-pills material-list fabric-tab menu" role="tablist">
+                            <li class="active"><a class="tab-menu-category" href="#standard" data-toggle="tab" data-material="fabric" data-category="standard">Standard</a></li>
+                            <li><a href="#premium" class="tab-menu-category" data-toggle="tab" data-material="fabric" data-category="premium">Premium</a></li>
+                            <li><a href="#super_premium" class="tab-menu-category" data-toggle="tab" data-material="fabric" data-category="super_premium">Super Premium</a></li>
                         </ul>
+
+                        <!-- <div class="menu">
+                            <button data-category="standard">standard</button>
+                            <button data-category="premium">premium</button>
+                        </div> -->
+
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane list-material" id="standard"></div>
-                            <div class="tab-pane list-material active" id="premium"></div>
+                            <div role="tabpanel" class="tab-pane list-material active" id="standard"></div>
+                            <div class="tab-pane list-material" id="premium"></div>
                             <div class="tab-pane list-material" id="super_premium"></div>
+                            <!-- <div class="content"></div> -->
                         </div>
 
                     </div>
@@ -70,6 +85,7 @@
             </div>
             <div class="footer-custom-detail">
                 <h4><strong>Make your own shirt</strong></h4>
+                <!-- <div id = "result"> </div> -->
                 <div id="fcd-fabric"></div>
             </div>
         </div>
@@ -79,25 +95,31 @@
 <button id="change_fabric" data-src="" data-material="" style="display:none;"></button>
 
 <script>
-    $(document).ready(function() {
-        var material = 'fabric';
-        var category = 'standard';
-        var key = '';
+$(document).ready(function() {
+    var material = 'fabric';
+    var category = 'standard';
+    var key      = '';
 
-        var param = {
+    var param = {
+        material: material,
+        category: category,
+        key: key
+    }
+    show_all_materials(param);
+        
+        // menu category
+        $(".tab-menu-category").click(function (e) {
+          const category = $(e.target).attr("data-category");
+          var param = {
             material: material,
-            category: category,
+            category: `${category}`,
             key: key,
-            // material: 'fabric',
-            // id: '1',
-            // category: 'standard',
-            // idcategory: '1',
-            // idsubcategory: '1',
-            // sub: '1'
         }
         show_all_materials(param);
+        });
 
         $("#key_search").keyup(function() {
+            // var category = 'standard, premium, super_premium';
             var category = $(".material-list li.active a").data('category');
             var param = {
                 material: material,
@@ -108,5 +130,9 @@
         });
 
         <?php $this->load->view('template/frontend/custom/_js_objects'); ?>
+
     });
 </script>
+
+<!-- //check verify -->
+<?php $this->load->view('template/frontend/custom/_custom_verify'); ?> 

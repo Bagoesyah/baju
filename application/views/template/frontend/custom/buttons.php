@@ -28,9 +28,9 @@
                     <div class="category-custom">
                         <!-- Nav tabs -->
                         <ul class="nav nav-pills button-tab" role="tablist">
-                            <li class="active"><a href="#button" data-toggle="tab" data-material="buttons" data-category="button">08 Button</a></li>
-                            <li><a href="#button_hole" data-toggle="tab" data-material="buttons" data-category="button_hole">11 Button Hole</a></li>
-                            <li><a href="#button_thread" data-toggle="tab" data-material="buttons" data-category="button_thread">12 Button Thread</a></li>
+                            <li class="active"><a class="tab-menu-category" href="#button" data-toggle="tab" data-material="buttons" data-category="button">08 Button</a></li>
+                            <li><a class="tab-menu-category" href="#button_hole" data-toggle="tab" data-material="buttons" data-category="button_hole">11 Button Hole</a></li>
+                            <li><a class="tab-menu-category" href="#button_thread" data-toggle="tab" data-material="buttons" data-category="button_thread">12 Button Thread</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -85,9 +85,19 @@ $(document).ready(function() {
 
     var param = {
         material: material,
-        category: category
+        category: `${category}`,
     }
     show_all_materials(param);
+
+        // menu category
+        $(".tab-menu-category").click(function (e) {
+          const category = $(e.target).attr("data-category");
+          var param = {
+            material: material,
+            category: `${category}`,
+        }
+        show_all_materials(param);
+        });
 
     <?php $this->load->view('template/frontend/custom/_js_objects'); ?>
 });

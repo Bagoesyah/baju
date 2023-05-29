@@ -4,6 +4,19 @@
 # @Last modified by:   Awan Tengah
 # @Last modified time: 2017-05-03T03:43:31+07:00
 ?>
+
+<style>
+    .btn-other-submit{
+        margin-top: 20px;
+    }
+    .margin {
+        margin-bottom: 1rem;
+    }
+    /* .container-table-size{
+        margin: auto;
+    } */
+</style>
+
 <div class="container custom text-justify">
     <div class="row">
         <div class="col-sm-12">
@@ -159,7 +172,50 @@
                             </table>
                         </div>
 
-                        <div class="text-center">
+                        <div class="text-center margin">
+                            <a class="link-collapse-show-sample-size collapsed" role="button" data-toggle="collapse" href="#collapseShowSampleSize" aria-expanded="false" aria-controls="collapseDetailSizeAdjustment">
+                                <span><i class="ion-android-arrow-dropdown-circle"></i> Show sample size</span>
+                            </a>
+                            <div class="collapse" id="collapseShowSampleSize">
+                                <div class="table-responsive text-justify">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr class="d-flex justify-content-center align-items-center">
+                                                <td rowspan="2" class="text-center">Sample</td>
+                                                <td class="text-center">
+                                                    To Fit
+                                                    <!-- <input type="text" name="neck_dimensions" class="form-control" placeholder="0" readonly> -->
+                                                </td>
+                                                <td class="text-center">
+                                                    To Up
+                                                    <!-- <input type="text" name="neck_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('neck_correction'); ?>"> -->
+                                                </td>
+                                                <td class="text-center">
+                                                    To Down
+                                                    <!-- <input type="text" name="neck_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('neck_product_upsize'); ?>" readonly> -->
+                                                </td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-center align-items-center">
+                                                <td class="text-center">
+                                                    A
+                                                    <!-- <input type="text" name="shoulder_dimensions" class="form-control" placeholder="0" readonly> -->
+                                                </td>
+                                                <td class="text-center">
+                                                    C
+                                                    <!-- <input type="text" name="shoulder_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('shoulder_correction'); ?>"> -->
+                                                </td>
+                                                <td class="text-center">
+                                                    U
+                                                    <!-- <input type="text" name="shoulder_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('shoulder_product_upsize'); ?>" readonly> -->
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center margin">
                             <a class="link-collapse-size-adjustment collapsed" role="button" data-toggle="collapse" href="#collapseDetailSizeAdjustment" aria-expanded="false" aria-controls="collapseDetailSizeAdjustment">
                                 <span><i class="ion-android-arrow-dropdown-circle"></i> Show detailed size adjustment</span>
                             </a>
@@ -178,22 +234,22 @@
                                             <tr>
                                                 <td>Neck</td>
                                                 <td>
-                                                    <input type="number" name="neck_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" id="neck_dimensions" name="neck_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="neck_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('neck_correction'); ?>">
+                                                    <input type="number" id="neck_correction" name="neck_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('neck_correction'); ?>">
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="neck_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('neck_product_upsize'); ?>" readonly>
+                                                    <input type="number" id="neck_product_upsize" name="neck_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('neck_product_upsize'); ?>" readonly>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Shoulder</td>
                                                 <td>
-                                                    <input type="number" name="shoulder_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="shoulder_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="shoulder_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('shoulder_correction'); ?>">
+                                                    <input type="number" name="shoulder_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('shoulder_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="shoulder_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('shoulder_product_upsize'); ?>" readonly>
@@ -202,10 +258,10 @@
                                             <tr>
                                                 <td>Chest</td>
                                                 <td>
-                                                    <input type="number" name="chest_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="chest_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="chest_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('chest_correction'); ?>">
+                                                    <input type="number" name="chest_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('chest_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="chest_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('chest_product_upsize'); ?>" readonly>
@@ -214,10 +270,10 @@
                                             <tr>
                                                 <td>Waist</td>
                                                 <td>
-                                                    <input type="number" name="waist_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="waist_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="waist_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('waist_correction'); ?>">
+                                                    <input type="number" name="waist_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('waist_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="waist_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('waist_product_upsize'); ?>" readonly>
@@ -227,10 +283,10 @@
                                                 <input type="hidden" name="id_size">
                                                 <td>Hip</td>
                                                 <td>
-                                                    <input type="number" name="hip_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="hip_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="hip_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('hip_correction'); ?>">
+                                                    <input type="number" name="hip_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('hip_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="hip_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('hip_product_upsize'); ?>" readonly>
@@ -239,10 +295,10 @@
                                             <tr>
                                                 <td>Arm hole</td>
                                                 <td>
-                                                    <input type="number" name="arm_hole_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="arm_hole_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="arm_hole_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('arm_hole_correction'); ?>">
+                                                    <input type="number" name="arm_hole_correction correction_element" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('arm_hole_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="arm_hole_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('arm_hole_product_upsize'); ?>" readonly>
@@ -251,10 +307,10 @@
                                             <tr>
                                                 <td>Back Length (~88cm)</td>
                                                 <td>
-                                                    <input type="number" name="back_length_88_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="back_length_88_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="back_length_88_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('back_length_88_correction'); ?>">
+                                                    <input type="number" name="back_length_88_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('back_length_88_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="back_length_88_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('back_length_88_product_upsize'); ?>" readonly>
@@ -263,10 +319,10 @@
                                             <tr>
                                                 <td>Back Length (89cm~)</td>
                                                 <td>
-                                                    <input type="number" name="back_length_89_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="back_length_89_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="back_length_89_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('back_length_89_correction'); ?>">
+                                                    <input type="number" name="back_length_89_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('back_length_89_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="back_length_89_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('back_length_89_product_upsize'); ?>" readonly>
@@ -275,10 +331,10 @@
                                             <tr>
                                                 <td>Aloha (~88cm)</td>
                                                 <td>
-                                                    <input type="number" name="aloha_88_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="aloha_88_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="aloha_88_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('aloha_88_correction'); ?>">
+                                                    <input type="number" name="aloha_88_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('aloha_88_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="aloha_88_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('aloha_88_product_upsize'); ?>" readonly>
@@ -287,10 +343,10 @@
                                             <tr>
                                                 <td>Aloha (89cm~)</td>
                                                 <td>
-                                                    <input type="number" name="aloha_89_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="aloha_89_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="aloha_89_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('aloha_89_correction'); ?>">
+                                                    <input type="number" name="aloha_89_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('aloha_89_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="aloha_89_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('aloha_89_product_upsize'); ?>" readonly>
@@ -299,10 +355,10 @@
                                             <tr>
                                                 <td>Cuffs Circle</td>
                                                 <td>
-                                                    <input type="number" name="cuffs_circle_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="cuffs_circle_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="cuffs_circle_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('cuffs_circle_correction'); ?>">
+                                                    <input type="number" name="cuffs_circle_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('cuffs_circle_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="cuffs_circle_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('cuffs_circle_product_upsize'); ?>" readonly>
@@ -311,10 +367,10 @@
                                             <tr>
                                                 <td>Short Sleeve</td>
                                                 <td>
-                                                    <input type="number" name="short_sleeve_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="short_sleeve_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="short_sleeve_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('short_sleeve_correction'); ?>">
+                                                    <input type="number" name="short_sleeve_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('short_sleeve_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="short_sleeve_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('short_sleeve_product_upsize'); ?>" readonly>
@@ -323,10 +379,10 @@
                                             <tr>
                                                 <td>Sleeve Circle</td>
                                                 <td>
-                                                    <input type="number" name="sleeve_circle_dimensions" class="form-control" placeholder="0" readonly>
+                                                    <input type="number" name="sleeve_circle_dimensions" class="form-control dimension_element" placeholder="0" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="sleeve_circle_correction" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('sleeve_circle_correction'); ?>">
+                                                    <input type="number" name="sleeve_circle_correction" class="form-control correction_element" placeholder="0" value="<?php echo $this->session->userdata('sleeve_circle_correction'); ?>">
                                                 </td>
                                                 <td>
                                                     <input type="number" name="sleeve_circle_product_upsize" class="form-control" placeholder="0" value="<?php echo $this->session->userdata('sleeve_circle_product_upsize'); ?>" readonly>
@@ -340,6 +396,10 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="make_with_auto">...</div>
+                    <!-- <button type="button" href="#" onclick="verify()" class="btn btn-primary">Submit</button> -->
+                    <a id="goto_verify" href="javascript:void(0);" data-menu="verify" class="nav_menu">
+                        <button type="button" class="btn btn-primary nav_menu_item">Submit</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -366,11 +426,11 @@
                 <div class="table-responsive">
                     <table class="table table-bordered" id="list-view-chart">
                         <!-- temporary static data size chart -->
-                        <tbody>
+                        <!-- <tbody>
                             <tr>
                                 <td>Neck Size</td>
                                 <td class="head-neck" colspan="5" style="text-align:center;">
-                                    38
+                                    
                                 </td>
                             </tr>
                             <tr>
@@ -383,11 +443,11 @@
                             </tr>
                             <tr>
                                 <td>Neck</td>
-                                <td><?php echo isset($size['PM2']['neck']) ? $size['PM2']['neck'] : ''; ?>38</td>
-                                <td><?php echo isset($size['PM3']['neck']) ? $size['PM3']['neck'] : ''; ?>38</td>
-                                <td><?php echo isset($size['PM4']['neck']) ? $size['PM4']['neck'] : ''; ?>38</td>
-                                <td><?php echo isset($size['PM5']['neck']) ? $size['PM5']['neck'] : ''; ?>38</td>
-                                <td><?php echo isset($size['PM7']['neck']) ? $size['PM7']['neck'] : ''; ?>38</td>
+                                <td><?php echo isset($size['PM2']['neck']) ? $size['PM2']['neck'] : ''; ?></td>
+                                <td><?php echo isset($size['PM3']['neck']) ? $size['PM3']['neck'] : ''; ?></td>
+                                <td><?php echo isset($size['PM4']['neck']) ? $size['PM4']['neck'] : ''; ?></td>
+                                <td><?php echo isset($size['PM5']['neck']) ? $size['PM5']['neck'] : ''; ?></td>
+                                <td><?php echo isset($size['PM7']['neck']) ? $size['PM7']['neck'] : ''; ?></td>
                             </tr>
                             <tr>
                                 <td>Shoulder</td>
@@ -493,7 +553,7 @@
                                 <td><?php echo isset($size['PM5']['sleeve_type']) ? ucwords($size['PM5']['sleeve_type']) : ''; ?>Regular</td>
                                 <td><?php echo isset($size['PM7']['sleeve_type']) ? ucwords($size['PM7']['sleeve_type']) : ''; ?>Regular</td>
                             </tr>
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
             </div>
@@ -503,6 +563,7 @@
         </div>
     </div>
 </div>
+
 <style>
 @media (min-width: 768px) {
     .modal-chart-size{width:760px;}
@@ -510,7 +571,222 @@
 table#list-view-chart tr td:first-child{text-align:left;font-weight:bold;}
 table#list-view-chart tr td.head-neck{text-align:center;}
 </style>
+
 <script>
+    //submit to verify
+    $(document).ready(function() {
+		const base_url = "<?= base_url() ?>"
+
+        const loadView = (path) => {
+			$('#content-custom').load(base_url + `custom/${path}`);
+			// $.get(base_url + `custom/${path}`, function(data) {
+			// 	$("#content-custom").html(data);
+			// })
+		}
+
+		$('.nav_menu').click(function(e) {
+			e.preventDefault();
+			// checking verify every page load
+			// check_verify();
+			const menuName = $(this).attr('data-menu')
+			// console.log(menuName)
+			if (menuName) return loadView(menuName);
+			// if (menuName) return console.log(menuName);
+			if (!menuName) return console.error("page not found");
+
+		});
+
+    });
+
+    //size chart
+    $(document).ready(function() {
+		$("#list-view-chart").html('LOADING..');
+		$('#size-cart-modal').on('shown.bs.modal', function (e) {
+
+			$("#list-view-chart").html('');
+			$.ajax({
+				url: base_url + '/api/product/get_size_chart',
+				type: "POST",
+				beforeSend: function(xhr){xhr.setRequestHeader('APP_TOKEN', app_token);},
+				data: {
+					around_neck: $('#around_neck').val()
+				},
+				success: function(response) {
+					if(response.STATUS == 'SUCCESS') {
+						$("#list-view-chart").append(
+							response.DATA
+						);
+					} else {
+						$("#list-view-chart").html('<tr><td colspan="3">'+response.MESSAGE+'</td></tr>');
+					}
+				}
+			});
+		});
+
+		$('#size-cart-modal').on('hidden.bs.modal', function() {
+			$("#list-view-chart").html('LOADING..');
+		});
+
+		$('#collapseShowSampleSize').on('shown.bs.collapse', function () {
+			$('a.link-collapse-show-sample-size span').html('<i class="ion-android-arrow-dropup-circle"></i> Hide sample size');
+		});
+		$('#collapseShowSampleSize').on('hidden.bs.collapse', function () {
+			$('a.link-collapse-show-sample-size span').html('<i class="ion-android-arrow-dropdown-circle"></i> Show sample size');
+		});
+		$('#collapseDetailSizeAdjustment').on('shown.bs.collapse', function () {
+			$('a.link-collapse-size-adjustment span').html('<i class="ion-android-arrow-dropup-circle"></i> Hide detailed size adjustment');
+		});
+		$('#collapseDetailSizeAdjustment').on('hidden.bs.collapse', function () {
+			$('a.link-collapse-size-adjustment span').html('<i class="ion-android-arrow-dropdown-circle"></i> Show detailed size adjustment');
+		});
+    });
+
+
+    // size calculation
+    function calculationSize(){
+
+        // var id_size = !isNaN(get_element_by_name('id_size')) && get_element_by_name('id_size') != '' ? get_element_by_name('id_size') : 0;
+
+// MAIN SIZE
+// var around_neck = $('#around_neck').val() || 0;
+// var body_type = $('#select_body_type').val() || 0;
+// var sleeve_type = $('#select_sleeve_type').val() || 0;
+// var sleeve_length_right = $('#select_sleeve_length_right').find(":selected").val() || 0;
+// var sleeve_length_left = $('#select_sleeve_length_left').val() || 0;
+let sleeve_length_right = document.querySelector('#select_sleeve_length_right').value;
+
+console.log(sleeve_length_right)
+
+// Dimensions
+var neck_dimensions = !isNaN(get_element_by_name('neck_dimensions')) && get_element_by_name('neck_dimensions') != '' ? get_element_by_name('neck_dimensions') : 0;
+// var shoulder_dimensions = !isNaN(get_element_by_name('shoulder_dimensions')) && get_element_by_name('shoulder_dimensions') != '' ? get_element_by_name('shoulder_dimensions') : 0;
+// var chest_dimensions = !isNaN(get_element_by_name('chest_dimensions')) && get_element_by_name('chest_dimensions') != '' ? get_element_by_name('chest_dimensions') : 0;
+// var waist_dimensions = !isNaN(get_element_by_name('waist_dimensions')) && get_element_by_name('waist_dimensions') != '' ? get_element_by_name('waist_dimensions') : 0;
+// var hip_dimensions = !isNaN(get_element_by_name('hip_dimensions')) && get_element_by_name('hip_dimensions') != '' ? get_element_by_name('hip_dimensions') : 0;
+// var arm_hole_dimensions = !isNaN(get_element_by_name('arm_hole_dimensions')) && get_element_by_name('arm_hole_dimensions') != '' ? get_element_by_name('arm_hole_dimensions') : 0;
+// var back_length_88_dimensions = !isNaN(get_element_by_name('back_length_88_dimensions')) && get_element_by_name('back_length_88_dimensions') != '' ? get_element_by_name('back_length_88_dimensions') : 0;
+// var back_length_89_dimensions = !isNaN(get_element_by_name('back_length_89_dimensions')) && get_element_by_name('back_length_89_dimensions') != '' ? get_element_by_name('back_length_89_dimensions') : 0;
+
+// if (parseInt(sleeve_length_right) < 89) {
+//     back_length_89_dimensions = 0;
+// }
+
+// var aloha_88_dimensions = !isNaN(get_element_by_name('aloha_88_dimensions')) && get_element_by_name('aloha_88_dimensions') != '' ? get_element_by_name('aloha_88_dimensions') : 0;
+// var aloha_89_dimensions = !isNaN(get_element_by_name('aloha_89_dimensions')) && get_element_by_name('aloha_89_dimensions') != '' ? get_element_by_name('aloha_89_dimensions') : 0;
+
+// if (parseInt(sleeve_length_right) < 89) {
+//     aloha_89_dimensions = 0;
+// }
+
+// var cuffs_circle_dimensions = !isNaN(get_element_by_name('cuffs_circle_dimensions')) && get_element_by_name('cuffs_circle_dimensions') != '' ? get_element_by_name('cuffs_circle_dimensions') : 0;
+// var short_sleeve_dimensions = !isNaN(get_element_by_name('short_sleeve_dimensions')) && get_element_by_name('short_sleeve_dimensions') != '' ? get_element_by_name('short_sleeve_dimensions') : 0;
+// var sleeve_circle_dimensions = !isNaN(get_element_by_name('sleeve_circle_dimensions')) && get_element_by_name('sleeve_circle_dimensions') != '' ? get_element_by_name('sleeve_circle_dimensions') : 0;
+
+// //Correction
+var neck_correction = !isNaN(get_element_by_name('neck_correction')) && get_element_by_name('neck_correction') != '' ? get_element_by_name('neck_correction') : 0;
+
+// var shoulder_correction = !isNaN(get_element_by_name('shoulder_correction')) && get_element_by_name('shoulder_correction') != '' ? get_element_by_name('shoulder_correction') : 0;
+// var chest_correction = !isNaN(get_element_by_name('chest_correction')) && get_element_by_name('chest_correction') != '' ? get_element_by_name('chest_correction') : 0;
+// var waist_correction = !isNaN(get_element_by_name('waist_correction')) && get_element_by_name('waist_correction') != '' ? get_element_by_name('waist_correction') : 0;
+// var hip_correction = !isNaN(get_element_by_name('hip_correction')) && get_element_by_name('hip_correction') != '' ? get_element_by_name('hip_correction') : 0;
+// var arm_hole_correction = !isNaN(get_element_by_name('arm_hole_correction')) && get_element_by_name('arm_hole_correction') != '' ? get_element_by_name('arm_hole_correction') : 0;
+// var back_length_88_correction = !isNaN(get_element_by_name('back_length_88_correction')) && get_element_by_name('back_length_88_correction') != '' ? get_element_by_name('back_length_88_correction') : 0;
+// var back_length_89_correction = !isNaN(get_element_by_name('back_length_89_correction')) && get_element_by_name('back_length_89_correction') != '' ? get_element_by_name('back_length_89_correction') : 0;
+// var aloha_88_correction = !isNaN(get_element_by_name('aloha_88_correction')) && get_element_by_name('aloha_88_correction') != '' ? get_element_by_name('aloha_88_correction') : 0;
+// var aloha_89_correction = !isNaN(get_element_by_name('aloha_89_correction')) && get_element_by_name('aloha_89_correction') != '' ? get_element_by_name('aloha_89_correction') : 0;
+// var cuffs_circle_correction = !isNaN(get_element_by_name('cuffs_circle_correction')) && get_element_by_name('cuffs_circle_correction') != '' ? get_element_by_name('cuffs_circle_correction') : 0;
+// var short_sleeve_correction = !isNaN(get_element_by_name('short_sleeve_correction')) && get_element_by_name('short_sleeve_correction') != '' ? get_element_by_name('short_sleeve_correction') : 0;
+// var sleeve_circle_correction = !isNaN(get_element_by_name('sleeve_circle_correction')) && get_element_by_name('sleeve_circle_correction') != '' ? get_element_by_name('sleeve_circle_correction') : 0;
+
+//sum size
+var sum_neck = parseInt(neck_dimensions) + parseInt(neck_correction);
+// var sum_shoulder = parseInt(shoulder_dimensions) + parseInt(shoulder_correction);
+// var sum_chest = parseInt(chest_dimensions) + parseInt(chest_correction);
+// var sum_waist = parseInt(waist_dimensions) + parseInt(waist_correction);
+// var sum_hip = parseInt(hip_dimensions) + parseInt(hip_correction);
+// var sum_arm_hole = parseInt(arm_hole_dimensions) + parseInt(arm_hole_correction);
+// var sum_back_length_88 = parseInt(back_length_88_dimensions) + parseInt(back_length_88_correction);
+// var sum_back_length_89 = parseInt(back_length_89_dimensions) + parseInt(back_length_89_correction);
+// var sum_aloha_88 = parseInt(aloha_88_dimensions) + parseInt(aloha_88_correction);
+// var sum_aloha_89 = parseInt(aloha_89_dimensions) + parseInt(aloha_89_correction);
+// var sum_cuffs_circle = parseInt(cuffs_circle_dimensions) + parseInt(cuffs_circle_correction);
+// var sum_short_sleeve = parseInt(short_sleeve_dimensions) + parseInt(short_sleeve_correction);
+// var sum_sleeve_circle = parseInt(sleeve_circle_dimensions) + parseInt(sleeve_circle_correction);
+
+
+//Product upsize
+$('input[name="neck_product_upsize"]').val(sum_neck);
+// $('input[name="shoulder_product_upsize"]').val(sum_shoulder);
+// $('input[name="chest_product_upsize"]').val(sum_chest);
+// $('input[name="waist_product_upsize"]').val(sum_waist);
+// $('input[name="hip_product_upsize"]').val(sum_hip);
+// $('input[name="arm_hole_product_upsize"]').val(sum_arm_hole);
+// $('input[name="back_length_88_product_upsize"]').val(sum_back_length_88);
+// $('input[name="back_length_89_product_upsize"]').val(sum_back_length_89);
+// $('input[name="aloha_88_product_upsize"]').val(sum_aloha_88);
+// $('input[name="aloha_89_product_upsize"]').val(sum_aloha_89);
+// $('input[name="cuffs_circle_product_upsize"]').val(sum_cuffs_circle);
+// $('input[name="short_sleeve_product_upsize"]').val(sum_short_sleeve);
+// $('input[name="sleeve_circle_product_upsize"]').val(sum_sleeve_circle);
+
+// var set_session = [
+//     // MAIN SIZE
+//     ['around_neck_selection', around_neck],
+//     ['body_type_selection', body_type],
+//     ['sleeve_type_selection', sleeve_type],
+//     ['sleeve_length_right_selection', sleeve_length_right],
+//     ['sleeve_length_left_selection', sleeve_length_left],
+
+//     // Upsize
+//     ['id_size', id_size],
+//     ['neck_product_upsize', sum_neck],
+//     ['shoulder_product_upsize', sum_shoulder],
+//     ['chest_product_upsize', sum_chest],
+//     ['waist_product_upsize', sum_waist],
+//     ['hip_product_upsize', sum_hip],
+//     ['arm_hole_product_upsize', sum_arm_hole],
+//     ['back_length_88_product_upsize', sum_back_length_88],
+//     ['back_length_89_product_upsize', sum_back_length_89],
+//     ['aloha_88_product_upsize', sum_aloha_88],
+//     ['aloha_89_product_upsize', sum_aloha_89],
+//     ['cuffs_circle_product_upsize', sum_cuffs_circle],
+//     ['short_sleeve_product_upsize', sum_short_sleeve],
+//     ['sleeve_circle_product_upsize', sum_sleeve_circle],
+
+//     // Correction
+//     ['neck_correction', neck_correction],
+//     ['shoulder_correction', shoulder_correction],
+//     ['chest_correction', chest_correction],
+//     ['waist_correction', waist_correction],
+//     ['hip_correction', hip_correction],
+//     ['arm_hole_correction', arm_hole_correction],
+//     ['back_length_88_correction', back_length_88_correction],
+//     ['back_length_89_correction', back_length_89_correction],
+//     ['aloha_88_correction', aloha_88_correction],
+//     ['cuffs_circle_correction', cuffs_circle_correction],
+//     ['short_sleeve_correction', short_sleeve_correction],
+//     ['sleeve_circle_correction', sleeve_circle_correction],
+// ];
+
+// for (var i = 0; i < set_session.length; i++) {
+//     $.post(base_url + '/api/order/save_to_session', {type: set_session[i][0], value: set_session[i][1]}, function(response) {});
+// }
+    }
+
+    // define element input
+    // const dimensionElement = document.querySelectorAll('.dimension_element')
+    const correctionElement = document.querySelectorAll('.correction_element')
+    // const sleeve = document.querySelector('#select_sleeve_length_right');
+    // const productUpsize = document.querySelectorAll('.product_upsize')
+
+    // change value on input
+    correctionElement.forEach((elementCorr, idx) => {
+        elementCorr.addEventListener('input', (e) =>{
+            calculationSize();
+            // console.log(sleeve.value);
+    })
+})
+
 $(function() {
 
     getSizeCalculation();
@@ -578,6 +854,9 @@ $(function() {
                         $("input[name=cuffs_circle_dimensions]").val(d.DATA[0].CUFFS_CIRCLE);
                         $("input[name=short_sleeve_dimensions]").val(d.DATA[0].SHORT_SLEEVE);
                         $("input[name=sleeve_circle_dimensions]").val(d.DATA[0].SLEEVE_CIRCLE);
+                        if (!$('#collapseShowSampleSize').hasClass('in')) {
+                            $('.link-collapse-show-sample-size').click();
+                        }
                         if (!$('#collapseDetailSizeAdjustment').hasClass('in')) {
                             $('.link-collapse-size-adjustment').click();
                         }

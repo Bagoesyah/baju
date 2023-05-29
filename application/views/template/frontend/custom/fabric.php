@@ -133,6 +133,3 @@ $(document).ready(function() {
 
     });
 </script>
-
-<!-- //check verify -->
-<?php $this->load->view('template/frontend/custom/_custom_verify'); ?> 

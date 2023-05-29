@@ -1,24 +1,3 @@
-<!-- <script>
-    function cleric(){
-    
-    // optional: don't cache ajax to force the content to be fresh
-    $.ajaxSetup ({
-        cache: false
-    });
-
-    // specify loading spinner
-    var spinner = "<img src='http://i.imgur.com/pKopwXp.gif' alt='loading...' />";
-    
-    // specify the server/url you want to load data from
-    var url = "http://fiddle.jshell.net/dvb0wpLs/show/";
-    
-    // on click, load the data dynamically into the #result div
-    $('.nav_menu').click(function(){
-        $('#content-custom').html(spinner).load('template/frontend/custom/cleric', $data);
-    });
-
-};
-</script> -->
 <?php
 # @Author: Awan Tengah
 # @Date:   2017-03-17T13:59:01+07:00
@@ -104,7 +83,7 @@ class Custom extends MY_Controller {
         $data['material_buttons'] = get_data_curl(base_url('api/material/get_material_buttons?category=button'));
         $data['count_buttons'] = $this->material_buttons_model->count();
         $this->_nav_head = 'buttons';
-        // $this->load->view('template/frontend/custom/buttons', $data);
+        $this->load->view('template/frontend/custom/buttons', $data);
     }
 
     public function cuffs()
@@ -284,7 +263,7 @@ class Custom extends MY_Controller {
         
         if(is_null(get_session('around_neck_selection'))) {
             $this->session->set_flashdata('check_verify', 'Cannot proceed to Verify, you must complete the order.');
-            redirect('custom/other', 'location');
+            // redirect('custom/other', 'location');
         }
 
         if (
